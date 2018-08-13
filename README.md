@@ -72,4 +72,3 @@ response (json)
      "Job Name": "Job Name" or ""
     "Result": "Successed" or "Failed"
 }
-
