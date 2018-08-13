@@ -1,9 +1,9 @@
-##About
+## About
 
 This application is designed to manage the jenkins tasks. It provides create, update, delete and retrieve API to handle the tasks.
 Also it provide shell scripts to manager the tasks by tasks.sh
 
-##How to use it
+## How to use it
 To configure jenkins serve and logs, please modify the conf/App.ini file. the default is locahost
 
 If in Linux system, make sure python is right installed.
@@ -21,9 +21,9 @@ C:\path\to\app> set FLASK_APP=App.py
 C:\path\to\app> python -m flask run
  * Running on http://localhost:5000/
 
-##API description
+## API description
 
-Get the task
+### Get the task
 Get http://localhost:5000/v1/<task_name>
 response (json)
 {
@@ -32,7 +32,7 @@ response (json)
     "Result": "Successed" or "Failed"
 }
 
-Create Task
+### Create Task
 Post http://localhost:5000/v1/<task_name>
 response (json)
 {
@@ -41,7 +41,7 @@ response (json)
     "Result": "Successed" or "Failed"
 }
 
-Build Task
+### Build Task
 Put http://localhost:5000/v1/<task_name>
 Header: application/json
 Body:
@@ -54,7 +54,7 @@ response (json)
     "Result": "Successed" or "Failed"
 }
 
-Delete Task
+### Delete Task
 Delete http://localhost:5000/v1/<task_name>
 response (json)
 {
@@ -64,7 +64,7 @@ response (json)
 }
 
 
-Enable Task
+### Enable Task
 Put http://localhost:5000/v1/<task_name>
 Header: application/json
 body:
