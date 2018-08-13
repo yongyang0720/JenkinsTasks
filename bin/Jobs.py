@@ -189,7 +189,7 @@ class Jobs:
         try:
             jobs = self.server.delete_job(task_name)
             resp = json.dumps(jobs)
-            self.logger.info (result)
+            self.logger.info(resp)
             result = {
                 'Task': 'Delete the task',
                 'Job Name': task_name,
@@ -200,7 +200,7 @@ class Jobs:
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
             result = {
-                'Task': 'Enable the task',
+                'Task': 'Delete the task',
                 'Job Name': task_name,
                 'Result': 'Failed',
                 'Error Code': '404',
