@@ -8,5 +8,3 @@
 """
 
 __all__ = ['flask', 'jenkins', 'configparser', 'sys', 'unittest']
-
-from Tasks import *
