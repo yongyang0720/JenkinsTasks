@@ -26,58 +26,60 @@ if in Windows system, on Command Prompt:
 
 ### Get the task
 Get http://localhost:5000/v1/<task_name>
+response (json)
 
-<br/> response (json)  </br>
-<br/> {  </br>
-<br/>   "Task": "Get the task"  </br>
-<br/>    "Job Name": "Job Name" or ""  </br>
-<br/>   "Result": "Successed" or "Failed"  </br>
-}
+    {
+       "Task": "Get the task"
+       "Job Name": "Job Name" or ""
+       "Result": "Successed" or "Failed"
+    }
 
 ### Create Task
 Post http://localhost:5000/v1/<task_name>
+response (json)
 
-<br/> response (json)  </br>
-<br/> {  </br>
-<br/>    "Task": "Get the task"  </br>
-<br/>     "Job Name": "Job Name" or ""  </br>
-<br/>    "Result": "Successed" or "Failed"  </br>
-}
+    {
+      "Task": "Get the task"
+      "Job Name": "Job Name" or ""
+      "Result": "Successed" or "Failed"
+    }
 
 ### Build Task
 Put http://localhost:5000/v1/<task_name>
 
-<br/> Header:   application/json  </br>
-<br/> Body:  </br>
-<br/>   {"action","build"}  </br>
+    Content-type:   application/json
+    Body:
+      {"action","build"}
 
-<br/> response (json)  </br>
-<br/> {  </br>
-<br/>    "Task": "Build the task"  </br>
-<br/>     "Job Name": "Job Name" or "  </br>
-<br/>    "Result": "Successed" or "Failed"  </br>
-}
+response (json)
+
+    {
+      "Task": "Build the task"
+      "Job Name": "Job Name" or "
+      "Result": "Successed" or "Failed"
+    }
 
 ### Delete Task
 Delete http://localhost:5000/v1/<task_name>
+response (json)
 
-<br/> response (json)  </br>
-<br/> {  </br>
-<br/>    "Task": "Delete the task"  </br>
-<br/>     "Job Name": "Job Name" or ""  </br>
-<br/>    "Result": "Successed" or "Failed"  </br>
-}
+    {
+      "Task": "Delete the task"
+      "Job Name": "Job Name" or ""
+      "Result": "Successed" or "Failed"
+    }
 
 
 ### Enable Task
 Put http://localhost:5000/v1/<task_name>
 
-<br/> Header: application/json
-<br/> body:
-<br/>   {"action","enable"}
-<br/> response (json)
-<br/> {
-<br/>    "Task": "Enable the task"
-<br/>     "Job Name": "Job Name" or ""
-<br/>     "Result": "Successed" or "Failed"
-<br/> }
+    Content-type: application/json
+    body:
+      {"action","enable"}
+response (json)
+
+    {
+      "Task": "Enable the task"
+      "Job Name": "Job Name" or ""
+      "Result": "Successed" or "Failed"
+    }
