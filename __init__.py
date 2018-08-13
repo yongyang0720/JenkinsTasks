@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-    App and Jobs Class
+    Task Package
     ~~~~~~~~~~~~
-    App and Jobs Class
+    Task Packages
 
 """
 
