@@ -62,7 +62,7 @@ class Jobs:
                 'Job Name': "Get all tasks",
                 'Result': 'Successed',
                 'Error Code': '0',
-                'Description': 'Get all the task %s'
+                'Description': 'Get all the jobs'
             }
             self.logger.info (resp)
         except jenkins.JenkinsException as e:
@@ -89,7 +89,7 @@ class Jobs:
                 'Job Name': task_name,
                 'Result' : 'Successed',
                 'Error Code': '0',
-                'Description': 'Get the tasks %s'%(task_name)
+                'Description': 'Get the job: %s'%(task_name)
             }
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
@@ -116,7 +116,7 @@ class Jobs:
                 'Job Name': task_name,
                 'Result' : 'Successed',
                 'Error Code': '0',
-                'Description': 'Create the task %s'%(task_name)
+                'Description': 'Create the job: %s'%(task_name)
             }
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
@@ -143,7 +143,7 @@ class Jobs:
                 'Job Name': task_name,
                 'Result' : 'Successed',
                 'Error Code': '0',
-                'Description': 'Get all the task %s'%(task_name)
+                'Description': 'Get all the job: %s'%(task_name)
             }
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
@@ -168,7 +168,7 @@ class Jobs:
                 'Job Name': task_name,
                 'Result' : 'Successed',
                 'Error Code': '0',
-                'Description': 'Get all the task %s'%(task_name)
+                'Description': 'Get all the job: %s'%(task_name)
             }
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
@@ -195,7 +195,7 @@ class Jobs:
                 'Job Name': task_name,
                 'Result' : 'Successed',
                 'Error Code': '0',
-                'Description': 'Get all the task %s'%(task_name)
+                'Description': 'Deleted the job: %s'%(task_name)
             }
         except jenkins.JenkinsException as e:
             self.logger.exception(e)

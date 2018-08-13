@@ -384,3 +384,7 @@ Traceback (most recent call last):
     raise NotFoundException('Requested item could not be found')
 jenkins.NotFoundException: Requested item could not be found
 2018-08-13 17:39:54,596 - normal - INFO - {'Task': 'Enable the task', 'Job Name': 'tasks', 'Result': 'Failed', 'Error Code': '404', 'Description': 'Requested item could not be found'}
+2018-08-13 17:40:49,891 - normal - INFO - null
+2018-08-13 17:40:49,892 - normal - INFO - {'Task': 'Create the task', 'Job Name': 'tasks', 'Result': 'Successed', 'Error Code': '0', 'Description': 'Create the task tasks'}
+2018-08-13 17:40:54,765 - normal - INFO - null
+2018-08-13 17:40:54,765 - normal - INFO - {'Task': 'Delete the task', 'Job Name': 'tasks', 'Result': 'Successed', 'Error Code': '0', 'Description': 'Get all the task tasks'}
