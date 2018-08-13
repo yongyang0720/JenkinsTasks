@@ -39,7 +39,7 @@ Post http://localhost:5000/v1/<task_name>
 response (json)
 
     {
-      "Task": "Get the task"
+      "Task": "Create the task"
       "Job Name": "Job Name" or ""
       "Result": "Successed" or "Failed"
     }
@@ -55,7 +55,7 @@ response (json)
 
     {
       "Task": "Build the task"
-      "Job Name": "Job Name" or "
+      "Job Name": "Job Name" or ""
       "Result": "Successed" or "Failed"
     }
 
