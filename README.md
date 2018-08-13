@@ -26,53 +26,58 @@ if in Windows system, on Command Prompt:
 
 ### Get the task
 Get http://localhost:5000/v1/<task_name>
-response (json)
-{
-  "Task": "Get the task"
-   "Job Name": "Job Name" or ""
-  "Result": "Successed" or "Failed"
+
+<br/> response (json)  </br>
+<br/> {  </br>
+<br/>   "Task": "Get the task"  </br>
+<br/>    "Job Name": "Job Name" or ""  </br>
+<br/>   "Result": "Successed" or "Failed"  </br>
 }
 
 ### Create Task
 Post http://localhost:5000/v1/<task_name>
-response (json)
-{
-   "Task": "Get the task"
-    "Job Name": "Job Name" or ""
-   "Result": "Successed" or "Failed"
+
+<br/> response (json)  </br>
+<br/> {  </br>
+<br/>    "Task": "Get the task"  </br>
+<br/>     "Job Name": "Job Name" or ""  </br>
+<br/>    "Result": "Successed" or "Failed"  </br>
 }
 
 ### Build Task
 Put http://localhost:5000/v1/<task_name>
-Header:   application/json
-Body:
-  {"action","build"}
 
-response (json)
-{
-   "Task": "Build the task"
-    "Job Name": "Job Name" or "
-   "Result": "Successed" or "Failed"
+<br/> Header:   application/json  </br>
+<br/> Body:  </br>
+<br/>   {"action","build"}  </br>
+
+<br/> response (json)  </br>
+<br/> {  </br>
+<br/>    "Task": "Build the task"  </br>
+<br/>     "Job Name": "Job Name" or "  </br>
+<br/>    "Result": "Successed" or "Failed"  </br>
 }
 
 ### Delete Task
 Delete http://localhost:5000/v1/<task_name>
-response (json)
-{
-   "Task": "Delete the task"
-    "Job Name": "Job Name" or ""
-   "Result": "Successed" or "Failed"
+
+<br/> response (json)  </br>
+<br/> {  </br>
+<br/>    "Task": "Delete the task"  </br>
+<br/>     "Job Name": "Job Name" or ""  </br>
+<br/>    "Result": "Successed" or "Failed"  </br>
 }
 
 
 ### Enable Task
 Put http://localhost:5000/v1/<task_name>
-Header: application/json
-body:
-  {"action","enable"}
-response (json)
-{
-   "Task": "Enable the task"
-    "Job Name": "Job Name" or ""
-    "Result": "Successed" or "Failed"
-}
+
+<br/> Header: application/json
+<br/> body:
+<br/>   {"action","enable"}
+<br/> response (json)
+<br/> {
+<br/>    "Task": "Enable the task"
+<br/>     "Job Name": "Job Name" or ""
+<br/>     "Result": "Successed" or "Failed"
+<br/> }
