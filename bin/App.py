@@ -18,28 +18,43 @@ tasks = Jobs.Jobs()
 @app.route ('/v1/<task_name>', methods=['GET'])
 def api_get_task(task_name):
     response = tasks.get_task(task_name)
-    return jsonify({'Task': 'Get the task','Job Name': task_name, 'Result': response})
+    if response['Error Code'] == '0':
+        return make_response(jsonify(response),200)
+    else:
+        return make_response(jsonify(response),int(response['Error Code']))
 
 # create the task
 @app.route ('/v1/<task_name>', methods=['POST'])
 def api_create_task(task_name):
     response = tasks.create_task(task_name)
-    return jsonify({'Task': 'Create the task','Job Name': task_name, 'Result': response})
+    if response['Error Code'] == '0':
+        return make_response(jsonify(response),200)
+    else:
+        return make_response(jsonify(response),int(response['Error Code']))
 
 # Build the task
 @app.route ('/v1/<task_name>', methods=['PUT'])
 def api_build_task(task_name):
     if request.form['action']=='build':
         response = tasks.build_task(task_name)
-        return jsonify({'Task': 'Build the task','Job Name': task_name, 'Result': response})
+        if response['Error Code'] == '0':
+            return make_response (jsonify (response), 200)
+        else:
+            return make_response (jsonify (response), int(response['Error Code']))
 
 # Enable the task
     elif request.form['action'] == 'enable':
         response = tasks.enable_task(task_name)
-        return jsonify({'Task': 'Enable the task','Job Name': task_name, 'Result': response})
+        if response['Error Code'] == '0':
+            return make_response (jsonify (response), 200)
+        else:
+            return make_response (jsonify (response), int(response['Error Code']))
 
 # Delete the task
 @app.route('/v1/<task_name>', methods=['DELETE'])
 def api_delete_task(task_name):
     response = tasks.delete_task(task_name)
-    return jsonify({'Task': 'Delete the task','Job Name': task_name, 'Result': response})
+    if response['Error Code'] == '0':
+        return make_response(jsonify(response),200)
+    else:
+        return make_response(jsonify(response),int(response['Error Code']))

@@ -57,12 +57,24 @@ class Jobs:
                 resp = json.dumps(jobs)
             else:
                 resp = jsonify({'information': 'There is no job'})
-            result = 'successed'
+            result = {
+                'Task': 'Get All the  tasks',
+                'Job Name': "Get all tasks",
+                'Result': 'Successed',
+                'Error Code': '0',
+                'Description': 'Get all the task %s'
+            }
+            self.logger.info (resp)
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
-            resp = jsonify({'error': 'Get jobs failed. Please check the logs for detals'})
-            result = 'failed'
-        self.logger.info(resp)
+            result = {
+                'Task': 'Get the task',
+                'Job Name': task_name,
+                'Result': 'Failed',
+                'Error Code': '400',
+                'Description': str(e)
+            }
+        self.logger.info(result)
         return resp
 
     # Get the task: task_name
@@ -70,14 +82,26 @@ class Jobs:
     def get_task(self, task_name):
         try:
             jobs = self.server.get_job_info(task_name)
-            resp = json.dumps (jobs)
-            result = 'sucessed'
+            resp = json.dumps(jobs)
+            self.logger.info(resp)
+            result = {
+                'Task': 'Get the task',
+                'Job Name': task_name,
+                'Result' : 'Successed',
+                'Error Code': '0',
+                'Description': 'Get the tasks %s'%(task_name)
+            }
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
-            resp = jsonify({'job': task_name, 'error': 'Get the job failed'})
-            result = 'failed'
+            result = {
+                'Task': 'Get the task',
+                'Job Name': task_name,
+                'Result': 'Failed',
+                'Error Code': '404',
+                'Description': str (e)
+            }
 
-        self.logger.info(resp)
+        self.logger.info(result)
         return result
 
     # Create the task: task_name
@@ -85,13 +109,26 @@ class Jobs:
     def create_task(self, task_name):
         try:
             jobs = self.server.create_job(task_name,jenkins.EMPTY_CONFIG_XML)
-            resp = jsonify ({'job': task_name, 'information': 'Create the job  successed'})
-            result = 'sucessed'
+            resp = json.dumps (jobs)
+            self.logger.info(resp)
+            result = {
+                'Task': 'Create the task',
+                'Job Name': task_name,
+                'Result' : 'Successed',
+                'Error Code': '0',
+                'Description': 'Create the task %s'%(task_name)
+            }
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
-            resp = jsonify({'job': task_name, 'error': 'Create the job failed, Please check the logs for detals'})
-            result = 'failed'
-        self.logger.info(resp)
+            result = {
+                'Task': 'Create the task',
+                'Job Name': task_name,
+                'Result': 'Failed',
+                'Error Code': '400',
+                'Description': str (e)
+            }
+
+        self.logger.info(result)
         return result
 
 
@@ -101,12 +138,23 @@ class Jobs:
         try:
             jobs = self.server.build_job(task_name)
             resp = json.dumps(jobs)
-            result = 'sucessed'
+            result = {
+                'Task': 'Build the task',
+                'Job Name': task_name,
+                'Result' : 'Successed',
+                'Error Code': '0',
+                'Description': 'Get all the task %s'%(task_name)
+            }
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
-            resp = jsonify({'job': task_name, 'error': 'Build the job failed, Please check the logs for detals'})
-            result = 'failed'
-        self.logger.info(resp)
+            result = {
+                'Task': 'Build the task',
+                'Job Name': task_name,
+                'Result': 'Failed',
+                'Error Code': '400',
+                'Description': str (e)
+            }
+        self.logger.info(result)
         return result
 
     def enable_task( self, task_name ):
@@ -114,11 +162,23 @@ class Jobs:
         try:
             jobs = self.server.enable_job(task_name)
             resp = json.dumps(jobs)
-            result = 'sucessed'
+            self.logger.info(resp)
+            result = {
+                'Task': 'Enable the task',
+                'Job Name': task_name,
+                'Result' : 'Successed',
+                'Error Code': '0',
+                'Description': 'Get all the task %s'%(task_name)
+            }
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
-            resp = jsonify({'job': task_name, 'error': 'Retrieve the job failed, Please check the logs for detals'})
-            result = 'failed'
+            result = {
+                'Task': 'Enable the task',
+                'Job Name': task_name,
+                'Result': 'Failed',
+                'Error Code': '400',
+                'Description': str (e)
+            }
 
         self.logger.info(resp)
         return result
@@ -128,12 +188,24 @@ class Jobs:
     def delete_task(self,task_name):
         try:
             jobs = self.server.delete_job(task_name)
-            resp = jsonify ({'task': task_name, 'information': 'Delete the job successed'})
-            result = 'succesed'
+            resp = json.dumps(jobs)
+            self.logger.info (result)
+            result = {
+                'Task': 'Delete the task',
+                'Job Name': task_name,
+                'Result' : 'Successed',
+                'Error Code': '0',
+                'Description': 'Get all the task %s'%(task_name)
+            }
         except jenkins.JenkinsException as e:
             self.logger.exception(e)
-            resp = jsonify({'job': task_name, 'error': 'Delete the job failed'})
-            result = 'failed'
+            result = {
+                'Task': 'Enable the task',
+                'Job Name': task_name,
+                'Result': 'Failed',
+                'Error Code': '404',
+                'Description': str (e)
+            }
 
-        self.logger.info(resp)
-        return resp
+        self.logger.info(result)
+        return result

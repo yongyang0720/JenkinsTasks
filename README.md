@@ -26,11 +26,12 @@ if in Windows system, on Command Prompt:
 
 ### Get the task
 Get http://localhost:5000/v1/<task_name>
+
 response (json)
 
     {
        "Task": "Get the task"
-       "Job Name": "Job Name" or ""
+       "Job Name": task_name
        "Result": "Successed" or "Failed"
        "Error Code": "200" or "400" or "404"
        "Description": "Messager"
@@ -38,11 +39,12 @@ response (json)
 
 ### Create Task
 Post http://localhost:5000/v1/<task_name>
+
 response (json)
 
     {
       "Task": "Create the task"
-      "Job Name": "Job Name" or ""
+      "Job Name": task_name
       "Result": "Successed" or "Failed"
       "Error Code": "201" or "400"
       "Description": "Messager"
@@ -59,7 +61,7 @@ response (json)
 
     {
       "Task": "Build the task"
-      "Job Name": "Job Name" or ""
+      "Job Name": task_name
       "Result": "Successed" or "Failed"
       "Error Code": "201" or "400" or "404"
       "Description": "Messager"
@@ -67,11 +69,12 @@ response (json)
 
 ### Delete Task
 Delete http://localhost:5000/v1/<task_name>
+
 response (json)
 
     {
       "Task": "Delete the task"
-      "Job Name": "Job Name" or ""
+      "Job Name": task_name
       "Result": "Successed" or "Failed"
       "Error Code": "204" or "400" or "404"
       "Description": "Messager"
@@ -88,7 +91,7 @@ response (json)
 
     {
       "Task": "Enable the task"
-      "Job Name": "Job Name" or ""
+      "Job Name": task_name
       "Result": "Successed" or "Failed"
       "Error Code": "200" or "400" or "404"
       "Description": "Messager"
