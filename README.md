@@ -8,17 +8,18 @@ To configure jenkins serve and logs, please modify the conf/App.ini file. the de
 
 If in Linux system, make sure python is right installed.
 
-$ ssh joe@206.189.129.179 -p 6621
-$ sudo pip install flask, python-jenkins
-$ cd /path/to/app
-$ export FLASK_APP=App.py
-$ python -m flask run
+    $ ssh joe@206.189.129.179 -p 6621
+    $ sudo pip install flask, python-jenkins
+    $ cd /path/to/app
+    $ export FLASK_APP=App.py
+    $ python -m flask run
  * Running on http://localhost:5000/
 
 if in Windows system, on Command Prompt:
-C:\path\to\app> pip install flask, python-jenkins
-C:\path\to\app> set FLASK_APP=App.py
-C:\path\to\app> python -m flask run
+
+    C:\path\to\app> pip install flask, python-jenkins
+    C:\path\to\app> set FLASK_APP=App.py
+    C:\path\to\app> python -m flask run
  * Running on http://localhost:5000/
 
 ## API description
@@ -27,40 +28,40 @@ C:\path\to\app> python -m flask run
 Get http://localhost:5000/v1/<task_name>
 response (json)
 {
-    "Task": "Get the task"
-     "Job Name": "Job Name" or ""
-    "Result": "Successed" or "Failed"
+  "Task": "Get the task"
+   "Job Name": "Job Name" or ""
+  "Result": "Successed" or "Failed"
 }
 
 ### Create Task
 Post http://localhost:5000/v1/<task_name>
 response (json)
 {
-    "Task": "Get the task"
-     "Job Name": "Job Name" or ""
-    "Result": "Successed" or "Failed"
+   "Task": "Get the task"
+    "Job Name": "Job Name" or ""
+   "Result": "Successed" or "Failed"
 }
 
 ### Build Task
 Put http://localhost:5000/v1/<task_name>
-Header: application/json
+Header:   application/json
 Body:
-{"action","build"}
+  {"action","build"}
 
 response (json)
 {
-    "Task": "Build the task"
-     "Job Name": "Job Name" or ""
-    "Result": "Successed" or "Failed"
+   "Task": "Build the task"
+    "Job Name": "Job Name" or "
+   "Result": "Successed" or "Failed"
 }
 
 ### Delete Task
 Delete http://localhost:5000/v1/<task_name>
 response (json)
 {
-    "Task": "Delete the task"
-     "Job Name": "Job Name" or ""
-    "Result": "Successed" or "Failed"
+   "Task": "Delete the task"
+    "Job Name": "Job Name" or ""
+   "Result": "Successed" or "Failed"
 }
 
 
@@ -68,10 +69,10 @@ response (json)
 Put http://localhost:5000/v1/<task_name>
 Header: application/json
 body:
-{"action","enable"}
+  {"action","enable"}
 response (json)
 {
-    "Task": "Enable the task"
-     "Job Name": "Job Name" or ""
+   "Task": "Enable the task"
+    "Job Name": "Job Name" or ""
     "Result": "Successed" or "Failed"
 }
