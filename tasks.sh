@@ -32,6 +32,7 @@ get_task(){
         log() "Get the task $1"
         response = curl -X Get http://localhost:5000/v1/$1
         log() response
+        printf response
     if
 }
 
@@ -45,6 +46,7 @@ create_task(){
         log() "Create the task $1"
         response = curl -X Post http://localhost:5000/v1/$1
         log() response
+        printf response
     if
 
 }
@@ -62,6 +64,7 @@ build_task() {
         log() "Build the task $1"
         response = curl -X PUT http://localhost:5000/v1/$1 -d -d {"action" : "buile"}
         log() response
+        printf response
     if
 
 }
@@ -77,6 +80,7 @@ delete_task() {
         log() "Delete the task $1"
         response = curl -X DELETE http://localhost:5000/v1/$1
         log() response
+        printf response
     if
 
 }
@@ -94,6 +98,7 @@ enable_task() {
         log() "Delete the task $1"
         response = curl -X PUT http://localhost:5000/v1/$1 -d {"action" : "enable"}
         log() response
+        printf response
     if
 
 }
