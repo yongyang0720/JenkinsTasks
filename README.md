@@ -32,6 +32,8 @@ response (json)
        "Task": "Get the task"
        "Job Name": "Job Name" or ""
        "Result": "Successed" or "Failed"
+       "Error Code": "200" or "400" or "404"
+       "Description": "Messager"
     }
 
 ### Create Task
@@ -42,6 +44,8 @@ response (json)
       "Task": "Create the task"
       "Job Name": "Job Name" or ""
       "Result": "Successed" or "Failed"
+      "Error Code": "201" or "400"
+      "Description": "Messager"
     }
 
 ### Build Task
@@ -57,6 +61,8 @@ response (json)
       "Task": "Build the task"
       "Job Name": "Job Name" or ""
       "Result": "Successed" or "Failed"
+      "Error Code": "201" or "400" or "404"
+      "Description": "Messager"
     }
 
 ### Delete Task
@@ -67,6 +73,8 @@ response (json)
       "Task": "Delete the task"
       "Job Name": "Job Name" or ""
       "Result": "Successed" or "Failed"
+      "Error Code": "204" or "400" or "404"
+      "Description": "Messager"
     }
 
 
@@ -82,4 +90,6 @@ response (json)
       "Task": "Enable the task"
       "Job Name": "Job Name" or ""
       "Result": "Successed" or "Failed"
+      "Error Code": "200" or "400" or "404"
+      "Description": "Messager"
     }
