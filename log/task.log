@@ -388,3 +388,53 @@ jenkins.NotFoundException: Requested item could not be found
 2018-08-13 17:40:49,892 - normal - INFO - {'Task': 'Create the task', 'Job Name': 'tasks', 'Result': 'Successed', 'Error Code': '0', 'Description': 'Create the task tasks'}
 2018-08-13 17:40:54,765 - normal - INFO - null
 2018-08-13 17:40:54,765 - normal - INFO - {'Task': 'Delete the task', 'Job Name': 'tasks', 'Result': 'Successed', 'Error Code': '0', 'Description': 'Get all the task tasks'}
+2018-08-13 18:25:32,558 - normal - ERROR - Requested item could not be found
+Traceback (most recent call last):
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\jenkins\__init__.py", line 560, in jenkins_request
+    self._request(req))
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\jenkins\__init__.py", line 511, in _response_handler
+    response.raise_for_status()
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\models.py", line 939, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://localhost:8080/job/tasks/doDelete
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\Python\Tasks\venv\bin\Jobs.py", line 190, in delete_task
+    jobs = self.server.delete_job(task_name)
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\jenkins\__init__.py", line 1082, in delete_job
+    'POST', self._build_url(DELETE_JOB, locals())
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\jenkins\__init__.py", line 541, in jenkins_open
+    return self.jenkins_request(req, add_crumb, resolve_auth).text
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\jenkins\__init__.py", line 573, in jenkins_request
+    raise NotFoundException('Requested item could not be found')
+jenkins.NotFoundException: Requested item could not be found
+2018-08-13 18:25:32,571 - normal - INFO - {'Task': 'Delete the task', 'Job Name': 'tasks', 'Result': 'Failed', 'Error Code': '404', 'Description': 'Requested item could not be found'}
+2018-08-13 18:25:50,302 - normal - INFO - null
+2018-08-13 18:25:50,303 - normal - INFO - {'Task': 'Create the task', 'Job Name': 'tasks', 'Result': 'Successed', 'Error Code': '0', 'Description': 'Create the job: tasks'}
+2018-08-13 18:25:55,324 - normal - INFO - null
+2018-08-13 18:25:55,325 - normal - INFO - {'Task': 'Delete the task', 'Job Name': 'tasks', 'Result': 'Successed', 'Error Code': '0', 'Description': 'Deleted the job: tasks'}
+2018-08-13 18:26:35,365 - normal - ERROR - Requested item could not be found
+Traceback (most recent call last):
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\jenkins\__init__.py", line 560, in jenkins_request
+    self._request(req))
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\jenkins\__init__.py", line 511, in _response_handler
+    response.raise_for_status()
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\requests\models.py", line 939, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url: http://localhost:8080/job/tasks/doDelete
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\Coding\Python\Tasks\venv\bin\Jobs.py", line 190, in delete_task
+    jobs = self.server.delete_job(task_name)
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\jenkins\__init__.py", line 1082, in delete_job
+    'POST', self._build_url(DELETE_JOB, locals())
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\jenkins\__init__.py", line 541, in jenkins_open
+    return self.jenkins_request(req, add_crumb, resolve_auth).text
+  File "C:\Users\EYOYAYO\AppData\Local\Programs\Python\Python36\lib\site-packages\jenkins\__init__.py", line 573, in jenkins_request
+    raise NotFoundException('Requested item could not be found')
+jenkins.NotFoundException: Requested item could not be found
+2018-08-13 18:26:35,367 - normal - INFO - {'Task': 'Delete the task', 'Job Name': 'tasks', 'Result': 'Failed', 'Error Code': '404', 'Description': 'Requested item could not be found'}

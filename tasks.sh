@@ -19,7 +19,7 @@ LOG_FILE = $LOGDIR/task_shell.log
 
 log() {
     Date = `date "+%Y%m%d%H%M%S"`
-    echo Date: $1 >> $LOG_FILE
+    echo Date: $1 >> $LOG_FILE $LOG_FILE
 }
 
 # Get the task
@@ -27,12 +27,13 @@ log() {
 get_task(){
 
     if [! $1] then
+        echo "Task name should not be null"
         return
     else
         log() "Get the task $1"
         response = curl -X Get http://localhost:5000/v1/$1
-        log() response
-        printf response
+        log() $response
+        echo $response
     if
 }
 
@@ -41,12 +42,13 @@ get_task(){
 create_task(){
 
     if [! $1] then
+        echo "Task name should not be null"
         return
     else
         log() "Create the task $1"
         response = curl -X Post http://localhost:5000/v1/$1
-        log() response
-        printf response
+        log() $response
+        echo $response
     if
 
 }
@@ -59,12 +61,13 @@ create_task(){
 build_task() {
 
     if [! $1] then
+        echo "Task name should not be null"
         return
     else
         log() "Build the task $1"
         response = curl -X PUT http://localhost:5000/v1/$1 -d -d {"action" : "buile"}
-        log() response
-        printf response
+        log() $response
+        echo $response
     if
 
 }
@@ -75,12 +78,13 @@ build_task() {
 delete_task() {
 
     if [! $1] then
+        echo "Task name should not be null"
         return
     else
         log() "Delete the task $1"
         response = curl -X DELETE http://localhost:5000/v1/$1
-        log() response
-        printf response
+        log() $response
+        echo $response
     if
 
 }
@@ -93,74 +97,86 @@ delete_task() {
 enable_task() {
 
     if [! $1] then
+        echo "Task name should not be null"
         return
     else
         log() "Delete the task $1"
         response = curl -X PUT http://localhost:5000/v1/$1 -d {"action" : "enable"}
-        log() response
-        printf response
+        log() $response
+        echo $response
     if
 
 }
 
-echo "############################"
-echo "     Task managerment       "
-echo "############################"
-echo "please enter your choise"
-echo "1: Get the task"
-echo "2: Create the task"
-echo "3: Enable the task"
-echo "4: Build the task"
-echo "5: Delete the task"
-echo "6: Exit"
-echo "-----------------------------"
-read task
-
-case $task in
-1) # get the task
+while true
+do
+    echo "############################"
+    echo "     Tasks managerment       "
+    echo "############################"
+    echo "please enter your choise"
+    echo "1: Get the task"
+    echo "2: Create the task"
+    echo "3: Enable the task"
+    echo "4: Build the task"
+    echo "5: Delete the task"
+    echo "6: Exit"
+    echo "-----------------------------"
+    read task
     task_name = ""
-    while [! "task_name"]
-    do
-        echo "please type the task name"
-        read task_name
-    done
+
+    case $task in
+    1) # get the task
+        while [! $task_name]
+        do
+            read -p  "please type the task name" task_name
+        done
         get_task() $task_name
+        return
+        ;;
 
-2)  # create the task
-    task_name = ""
-    while [! "task_name"]
-    do
-        echo "please type the task name"
-        read task_name
-    done
+    2)  # create the task
+        while [! $task_name]
+        do
+            read -p  "please type the task name" task_name
+        done
         create_task() $task_name
+        return
+        ;;
 
-3)  # enable the task
-    task_name = ""
-    while [! "task_name"]
-    do
-        echo "please type the task name"
-        read task_name
-    done
+    3)  # enable the task
+        while [! "task_name"]
+        do
+            read -p "please type the task name" task_name
+        done
         enable_task() $task_name
+        return
+        ;;
 
-4)  # build the task
-    task_name = ""
-    while [! "task_name"]
-    do
-        echo "please type the task name"
-        read task_name
-    done
+    4)  # build the task
+        while [! $task_name]
+        do
+            read -p "please type the task name" task_name
+        done
         build_task() $task_name
+        return
+        ;;
 
-5)  # delete the task
-    task_name = ""
-    while [! "task_name"]
-    do
-        echo "please type the task name"
-        read task_name
-    done
+    5)  # delete the task
+        while [! $task_name]
+        do
+            read -p "please type the task name"  task_name
+        done
         delete_task() $task_name
+        return
+        ;;
 
-6) # Exit
-    exit()
+    6) # Exit
+        exit()
+        ;;
+
+    *) # whrong input
+        echo "wrong input, please choose it again"
+        continue
+
+    esac
+done
