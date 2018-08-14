@@ -26,31 +26,32 @@ log() {
 # Get http://localhost:5000/v1/<task_name>
 get_task(){
 
-    if [! $1] then
+    if [! $1]
+    then
         echo "Task name should not be null"
         return
     else
-        log() "Get the task $1"
+        log() "Get the task"
         response = curl -X Get http://localhost:5000/v1/$1
         log() $response
         echo $response
-    if
+    fi
 }
 
 # Create Task
 # Post http://localhost:5000/v1/<task_name>
 create_task(){
 
-    if [! $1] then
+    if [! $1]
+    then
         echo "Task name should not be null"
         return
     else
-        log() "Create the task $1"
+        log() "Create the task"
         response = curl -X Post http://localhost:5000/v1/$1
         log() $response
         echo $response
-    if
-
+    fi
 }
 
 # Build Task
@@ -60,16 +61,16 @@ create_task(){
 # {"action","build"}
 build_task() {
 
-    if [! $1] then
+    if [! $1]
+    then
         echo "Task name should not be null"
         return
     else
-        log() "Build the task $1"
+        log() "Build the task"
         response = curl -X PUT http://localhost:5000/v1/$1 -d -d {"action" : "buile"}
         log() $response
         echo $response
-    if
-
+    fi
 }
 
 
@@ -77,15 +78,16 @@ build_task() {
 # Delete http://localhost:5000/v1/<task_name>
 delete_task() {
 
-    if [! $1] then
+    if [! $1]
+    then
         echo "Task name should not be null"
         return
     else
-        log() "Delete the task $1"
+        log() "Delete the task"
         response = curl -X DELETE http://localhost:5000/v1/$1
         log() $response
         echo $response
-    if
+    fi
 
 }
 
@@ -96,15 +98,16 @@ delete_task() {
 # {"action","enable"}
 enable_task() {
 
-    if [! $1] then
+    if [! $1]
+    then
         echo "Task name should not be null"
         return
     else
-        log() "Delete the task $1"
+        log() "Delete the task"
         response = curl -X PUT http://localhost:5000/v1/$1 -d {"action" : "enable"}
         log() $response
         echo $response
-    if
+    fi
 
 }
 
@@ -174,7 +177,7 @@ do
         exit()
         ;;
 
-    *) # whrong input
+    *) # whrong input, try it agian
         echo "wrong input, please choose it again"
         continue
 
